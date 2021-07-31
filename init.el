@@ -17,7 +17,7 @@
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
  '(package-selected-packages
    (quote
-    (quickrun spaceline-all-the-icons company-box sky-color-clock dash osc yatex use-package undo-tree smartparens smart-mode-line rainbow-delimiters neotree multiple-cursors imenu-list imenu-anywhere hydra hide-mode-line google-this exec-path-from-shell elscreen doom-modeline dashboard counsel company color-theme-sanityinc-tomorrow ace-window))))
+    (company-lsp quickrun spaceline-all-the-icons company-box sky-color-clock dash osc yatex use-package undo-tree smartparens smart-mode-line rainbow-delimiters neotree multiple-cursors imenu-list imenu-anywhere hydra hide-mode-line google-this exec-path-from-shell elscreen doom-modeline dashboard counsel company color-theme-sanityinc-tomorrow ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -141,18 +141,18 @@
           ("C-n" . 'company-select-next)
           ("C-p" . 'company-select-previous)))
 
-(use-package company-lsp
-  :ensure t
-  :init
-  (push 'company-lsp company-backends))
+;; (use-package company-lsp
+;;   :ensure t
+;;   :init
+;;   (push 'company-lsp company-backends))
 
-(use-package lsp-mode
-  :ensure t
-  :init
-  (setq lsp-keymap-prefix "s-l")
-  :hook
-  (prog-mode . lsp)
-  :commands lsp)
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init
+;;   (setq lsp-keymap-prefix "s-l")
+;;   :hook
+;;   (prog-mode . lsp)
+;;   :commands lsp)
 
 ; lisp
 
