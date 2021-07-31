@@ -109,6 +109,8 @@
 
 (use-package neotree
   :ensure t
+  :config
+  (setq neo-vc-integration '(face char))
   :bind
   ("C-]" . 'neotree-toggle))
 
