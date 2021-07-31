@@ -2,7 +2,8 @@
 
 ;;; Commentary:
 
-;; ver.2020-2-27
+;; ver.2021-08-01
+;; This 
 
 ;;; Code:
 
@@ -182,6 +183,7 @@
 			'("~/.emacs.d/config")
 			load-path))
 
+(load "util")
 ;; (load "yatex-config")
 ;; (load "mode-line-config")
 ;; (load "sonic-pi-config")

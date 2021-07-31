@@ -1,6 +1,4 @@
-(defun insert-current-time ()
-  (interactive)
-  (insert (get-current-hour-and-minute-string)))
+;; nippo
 
 (defun nippo ()
   (interactive)
@@ -22,6 +20,8 @@
     (hour-and-minute-to-string
      (list (nth 2 time-string) (nth 1 time-string)))))
 
+;; json
+
 (defun json-format ()
   (interactive)
   (save-excursion
@@ -30,6 +30,8 @@
                              "python -m json.tool"
                              (buffer-name)
                              t)))
+
+;; unix epoch
 
 (defun unix-ts-to-str (&optional time zone)
   "Convert unix timestamp integer to human-readable string in RFC3339 format."
