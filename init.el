@@ -115,7 +115,9 @@
   ("C-]" . 'neotree-toggle))
 
 (use-package quickrun
-  :ensure t)
+  :ensure t
+  :bind
+  ("C-c C-q" . 'quickrun))
 
 (use-package smartparens
   :ensure t
