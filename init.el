@@ -233,7 +233,7 @@
 
 ; visual
 
-(set-frame-parameter (selected-frame) 'alpha 80)
+(set-frame-parameter (selected-frame) 'alpha 90)
 
 ; bar
 
