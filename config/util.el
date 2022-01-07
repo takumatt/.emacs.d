@@ -45,3 +45,24 @@
         (message (format "%d %s ==> %s" ts-int zone rfc_str))
         (kill-new rfc_str))
     (message "not a number")))
+
+
+;; gomidashi
+
+(setq kanen-gomi-day '("Wed" "Sat"))
+
+(defun ask-emacs-tomorrow-gomidashi()
+  (interactive)
+  (cond ((tomorrow-kanen-gomi-day-p)
+         (message "%s" "明日は可燃ゴミの日です"))
+        (t
+         (message "%s" "自分で調べてくれ。可燃ゴミの日ではない。"))))
+
+(defun tomorrow-kanen-gomi-day-p()
+  (let* ((now (current-time))
+         (tomorrow (time-add now (* 24 3600))))
+    (kanen-gomi-day-p tomorrow)))
+
+(defun kanen-gomi-day-p(time)
+  (let ((day (format-time-string "%a" time)))
+    (member day kanen-gomi-day)))
