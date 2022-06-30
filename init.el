@@ -42,8 +42,8 @@
 
 ;; use-package
 
-(require 'use-package)
-(require 'diminish)
+(eval-when-compile
+  (require 'use-package))
 (require 'bind-key)
 
 ;; utility
