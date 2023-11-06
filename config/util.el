@@ -27,7 +27,7 @@
   (save-excursion
     (shell-command-on-region (region-beginning)
                              (region-end)
-                             "python -m json.tool"
+                             "python3 -m json.tool"
                              (buffer-name)
                              t)))
 
@@ -66,3 +66,4 @@
 (defun kanen-gomi-day-p(time)
   (let ((day (format-time-string "%a" time)))
     (member day kanen-gomi-day)))
+
