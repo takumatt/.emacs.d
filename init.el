@@ -12,14 +12,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-box-icons-alist (quote company-box-icons-all-the-icons))
+ '(company-box-icons-alist 'company-box-icons-all-the-icons)
  '(custom-safe-themes
-   (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
- '(org-agenda-files (quote ("~/memo.org")))
+   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default))
+ '(org-agenda-files '("~/memo.org"))
  '(package-selected-packages
-   (quote
-    (diff-hl elixir-mode company-lsp quickrun spaceline-all-the-icons company-box sky-color-clock dash osc yatex use-package undo-tree smartparens smart-mode-line rainbow-delimiters neotree multiple-cursors imenu-list imenu-anywhere hydra hide-mode-line google-this exec-path-from-shell elscreen doom-modeline dashboard counsel company color-theme-sanityinc-tomorrow ace-window))))
+   '(swift-mode magit json-mode diff-hl elixir-mode company-lsp quickrun spaceline-all-the-icons company-box sky-color-clock dash osc yatex use-package undo-tree smartparens smart-mode-line rainbow-delimiters neotree multiple-cursors imenu-list imenu-anywhere hydra hide-mode-line google-this exec-path-from-shell elscreen doom-modeline dashboard counsel company color-theme-sanityinc-tomorrow ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,7 +57,7 @@
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :init
-  (load-theme 'sanityinc-tomorrow-night t))
+  (load-theme 'sanityinc-tomorrow-bright t))
 
 (use-package counsel
   :ensure t
@@ -135,6 +133,11 @@
 
 ;; git
 
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-dispatch-popup)))
+
 (use-package diff-hl
   :ensure t
   :hook
@@ -192,6 +195,12 @@
   :hook
   (css-mode . 'rainbow-mode))
 
+(use-package json-mode
+  :ensure t)
+
+(use-package swift-mode
+  :ensure t)
+
 ;; config
 
 ; load-path
@@ -234,7 +243,7 @@
 
 ; visual
 
-(set-frame-parameter (selected-frame) 'alpha 90)
+(set-frame-parameter (selected-frame) 'alpha 80)
 
 ; bar
 
