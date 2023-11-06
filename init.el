@@ -185,20 +185,19 @@
 
 ; web
 
-(use-package emmet-mode
-  :ensure t
-  :hook
-  (html-mode . 'emmet-mode))
+;; These packages may break exporting function such as `org-html-export-to-html`.
 
-(use-package rainbow-mode
-  :ensure t
-  :hook
-  (css-mode . 'rainbow-mode))
+;; (use-package emmet-mode
+;;   :ensure t
+;;   :hook
+;;   (html-mode . 'emmet-mode))
+
+;; (use-package rainbow-mode
+;;   :ensure t
+;;   :hook
+;;   (css-mode . 'rainbow-mode))
 
 (use-package json-mode
-  :ensure t)
-
-(use-package swift-mode
   :ensure t)
 
 ;; config
