@@ -18,7 +18,9 @@
      "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223"
      default))
  '(org-agenda-files '("~/memo.org"))
- '(package-selected-packages nil))
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages
+   '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -38,12 +40,6 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
-
-;; use-package
-
-(eval-when-compile
-  (require 'use-package))
-(require 'bind-key)
 
 ;; utility
 
@@ -73,6 +69,7 @@
   (counsel-mode 1)
   :bind
   ("C-s" . 'swiper))
+
 
 (use-package elscreen
   :ensure t
