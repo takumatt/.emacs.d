@@ -14,11 +14,19 @@
  ;; If there is more than one, they won't work right.
  '(company-box-icons-alist 'company-box-icons-all-the-icons)
  '(custom-safe-themes
-   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
+   '("9b21c848d09ba7df8af217438797336ac99cbbbc87a08dc879e9291673a6a631"
+     "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
      "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223"
      default))
  '(org-agenda-files '("~/memo.org"))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(ace-window all-the-icons bind-key claude-code
+                color-theme-sanityinc-tomorrow company consult copilot-chat
+                diff-hl doom-themes eat elixir-mode elscreen
+                emmet-mode exec-path-from-shell git-commit imenu-list
+                japanese-holidays json-mode magit marginalia multiple-cursors
+                neotree orderless quickrun rainbow-delimiters rainbow-mode
+                smart-mode-line smartparens swift-mode vertico))
  '(package-vc-selected-packages
    '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces
@@ -56,20 +64,31 @@
   :init
   (load-theme 'sanityinc-tomorrow-bright t))
 
-(use-package counsel
+(use-package vertico
   :ensure t
-  :diminish counsel-mode ivy-mode
   :init
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t      . ivy--regex-fuzzy)))
-  :config
-  (ivy-mode 1)
-  (counsel-mode 1)
-  :bind
-  ("C-s" . 'swiper))
+  (vertico-mode 1))
 
+(use-package orderless
+  :ensure t
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode 1))
+
+(use-package consult
+  :ensure t
+  :bind
+  ("C-s" . 'consult-line)
+  ("C-x b" . 'consult-buffer))
+
+(savehist-mode 1)
+(recentf-mode 1)
 
 (use-package elscreen
   :ensure t
