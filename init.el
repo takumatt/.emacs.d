@@ -12,23 +12,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-box-icons-alist 'company-box-icons-all-the-icons)
  '(custom-safe-themes
    '("9b21c848d09ba7df8af217438797336ac99cbbbc87a08dc879e9291673a6a631"
      "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
      "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223"
      default))
  '(org-agenda-files '("~/memo.org"))
- '(package-selected-packages
-   '(ace-window all-the-icons bind-key claude-code
-                color-theme-sanityinc-tomorrow company consult copilot-chat
-                diff-hl doom-themes eat elixir-mode
-                emmet-mode exec-path-from-shell git-commit imenu-list
-                japanese-holidays json-mode magit marginalia multiple-cursors
-                neotree orderless quickrun rainbow-delimiters rainbow-mode
-                smart-mode-line swift-mode vertico))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
-   '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
+   '((claude-code :url "https://github.com/stevemolitor/claude-code.el")))
+ '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -149,24 +142,32 @@
   :ensure t
   :bind (("C-c C-c" . copilot-chat-display)))
 
+(use-package vterm
+  :ensure t
+  :custom
+  (vterm-max-scrollback 1000))
+
 ;; language
 
 ; lsp
 
-(use-package company
+(use-package corfu
   :ensure t
-  :hook
-  (after-init  . (lambda ()
-                   (global-company-mode)))
+  :init
+  (global-corfu-mode 1)
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.2)
   :bind
-  (:map company-active-map
-          ("C-n" . 'company-select-next)
-          ("C-p" . 'company-select-previous)))
+  (:map corfu-map
+        ("C-n" . corfu-next)
+        ("C-p" . corfu-previous)))
 
-;; (use-package company-lsp
-;;   :ensure t
-;;   :init
-;;   (push 'company-lsp company-backends))
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;; (use-package lsp-mode
 ;;   :ensure t
