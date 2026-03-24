@@ -22,11 +22,11 @@
  '(package-selected-packages
    '(ace-window all-the-icons bind-key claude-code
                 color-theme-sanityinc-tomorrow company consult copilot-chat
-                diff-hl doom-themes eat elixir-mode elscreen
+                diff-hl doom-themes eat elixir-mode
                 emmet-mode exec-path-from-shell git-commit imenu-list
                 japanese-holidays json-mode magit marginalia multiple-cursors
                 neotree orderless quickrun rainbow-delimiters rainbow-mode
-                smart-mode-line smartparens swift-mode vertico))
+                smart-mode-line swift-mode vertico))
  '(package-vc-selected-packages
    '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces
@@ -90,19 +90,6 @@
 (savehist-mode 1)
 (recentf-mode 1)
 
-(use-package elscreen
-  :ensure t
-  :init
-  (setq elscreen-display-tab nil)
-  (setq elscreen-tab-display-kill-screen nil)
-  (setq elscreen-tab-display-control nil)
-  :hook
-  (after-init . (lambda ()
-                  (elscreen-start)
-                  (elscreen-create)))
-  :bind
-  ("C-<tab>"     . 'elscreen-next)
-  ("<C-iso-tab>" . 'elscreen-previous))
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
@@ -135,11 +122,7 @@
   :bind
   ("C-c C-q" . 'quickrun))
 
-(use-package smartparens
-  :ensure t
-  :diminish smartparens-mode
-  :init
-  (smartparens-global-mode 1))
+(electric-pair-mode 1)
 
 (use-package smart-mode-line
   :ensure t
